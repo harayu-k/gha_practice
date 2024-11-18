@@ -13,3 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "::debug::This is a debug log"
+  print:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment-name }}
+    env:
+      USERNAME: ${{ vars.USERNAME }}
+    steps:
+      - run: echo "${USERNAME}"
