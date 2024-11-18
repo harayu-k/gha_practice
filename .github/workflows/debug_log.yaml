@@ -2,6 +2,12 @@ name: debug
 on:
   push:
   workflow_dispatch:
+    inputs:
+      environment-name:
+        type: environment
+        default: test
+        required: false
+        description: environment name
 jobs:
   debug:
     runs-on: ubuntu-latest
