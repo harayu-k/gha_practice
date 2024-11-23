@@ -1,5 +1,5 @@
 name: call workflow
-on: pull_request
+on: push
 jobs:
   call:
     uses: ./.github/workflows/reusable-workflows.yaml
