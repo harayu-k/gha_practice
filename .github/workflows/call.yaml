@@ -2,7 +2,7 @@ name: call workflow
 on: pull_request
 jobs:
   call:
-    uses: .github/workflows/reusable-workflows.yaml
+    uses: ./.github/workflows/reusable-workflows.yaml
     with:
       pr-number: ${{ github.event.pull_request.event }}
     secrets:
