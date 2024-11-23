@@ -9,6 +9,9 @@ on:
     secrets:
       token:
         required: true
+    outputs:
+      message:
+        value: ${{ jobs.comment.outputs.pr-comment }}
 jobs:
   comment:
     runs-on: ubuntu-latest
@@ -26,3 +29,5 @@ jobs:
         env:
           PR_NUMBER: ${{ inputs.pr-number }}
           GITHUB_TOKEN: ${{ secrets.token }}
+    outputs:
+      pr-comment: ${{ steps.pr-comment.outputs.body }}
