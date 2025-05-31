@@ -16,5 +16,5 @@ jobs:
         id: demo
         run: exit 1
       - name: The demo step has failed
-        run: echo ${{steps.demo}}
+        run: echo "${{ toJSON(steps.demo) }}"
         if: ${{ failure() && steps.demo.conclusion == 'failure' }}
