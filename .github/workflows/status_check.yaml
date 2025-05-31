@@ -9,3 +9,5 @@ jobs:
       - run: echo "hello"
       - run: echo "helllo"
         if: ${{ failure() }}
+      - run: echo "cancelled"
+        if: ${{ cancelled() }}
