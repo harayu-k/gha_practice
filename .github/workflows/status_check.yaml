@@ -6,9 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - run: exit 1
-      - run: echo "hello"
-      - run: echo "helllo"
-        if: ${{ failure() }}
-      - run: sleep 100
-      - run: echo "cancelled"
-        if: ${{ cancelled() }}
+      # - run: echo "hello"
+      # - run: echo "helllo"
+      #   if: ${{ failure() }}
+      # - run: sleep 100
+      # - run: echo "cancelled"
+      #   if: ${{ cancelled() }}
+      - name: Failing step
+        id: demo
+        run: exit 1
+      - name: The demo step has failed
+        run: echo ${{steps.demo}}
+        if: ${{ failure() && steps.demo.conclusion == 'failure' }}
