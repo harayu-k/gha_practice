@@ -17,6 +17,7 @@ jobs:
         id: demo
         run: exit 1
       - run: sleep 65
+        if: ${{ failure() }}
       - name: The demo step has failed
         run: echo "${{ toJSON(steps.demo) }}"
         if: ${{ always()}}
