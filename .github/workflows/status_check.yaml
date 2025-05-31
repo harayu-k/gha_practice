@@ -1,0 +1,10 @@
+name: Status Check Example
+on:
+  push:
+jobs:
+  status-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: run exit 1
+      - run: echo "helllo"
+        if: ${{ failure() }}
