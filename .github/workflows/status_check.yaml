@@ -1,0 +1,23 @@
+name: Status Check Example
+on:
+  push:
+jobs:
+  status-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      # - run: exit 1
+      # - run: echo "hello"
+      # - run: echo "helllo"
+      #   if: ${{ failure() }}
+      # - run: sleep 100
+      # - run: echo "cancelled"
+      #   if: ${{ cancelled() }}
+      - name: Failing step
+        id: demo
+        run: exit 1
+      - run: sleep 80
+        if: ${{ failure() }}
+      - name: The demo step has failed
+        run: echo "${{ toJSON(steps.demo) }}"
+        if: ${{ always()}}
